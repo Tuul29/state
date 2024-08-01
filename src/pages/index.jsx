@@ -129,13 +129,29 @@ export default function Home() {
       <h1 className="text-5xl text-slate-500">User Find Application</h1>
       <div className="flex flex-col gap-5 mt-6 ">
         <Input handleChange={handleChange} />
-        <button onClick={handleClick}>clear</button>
-        <button onClick={showClick}>view</button>
+        <div className="flex gap-6 ">
+          <button
+            className=" border border-cyan-400 rounded-lg px-4"
+            onClick={handleClick}
+          >
+            clear
+          </button>
+          <button
+            className=" border border-cyan-400 rounded-lg px-4"
+            onClick={showClick}
+          >
+            view
+          </button>
+        </div>
+
         <p>Search value:{searchValue}</p>
         {users?.map((user) => {
           return (
-            <div>
+            <div className="flex gap-5 p-5 items-center border border-gray-500 rounded-lg">
               <UserCard userImg={user.imageUrl} firstName={user.firstName} />
+              <button>
+                <MdOutlineCancel className="justify-items-end" />
+              </button>
             </div>
           );
         })}
